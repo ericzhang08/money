@@ -26,6 +26,13 @@ public class MoneyApplication implements CommandLineRunner {
         System.out.println();
 
         System.out.println(fpApplication.getClass().getName());
-        System.out.println(fpApplication.run(listingPrice));
+        System.out.println("100:" + fpApplication.run(listingPrice));
+
+        var listingPrice1 = new BigDecimal(110);
+
+        System.out.println();
+
+        System.out.println(fpApplication.getClass().getName());
+        System.out.println("110:" + fpApplication.run(listingPrice1));
     }
 }
