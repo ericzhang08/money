@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 @Component
 public class CalculateFinalPriceFunctionImpl implements CalculateFinalPriceFunction {
@@ -11,7 +12,11 @@ public class CalculateFinalPriceFunctionImpl implements CalculateFinalPriceFunct
     public BigDecimal apply(
             Function<BigDecimal, BigDecimal> applyDiscount,
             Function<BigDecimal, BigDecimal> applyTax,
+            Function<BigDecimal, Boolean> discountRule,
             BigDecimal listingPrice) {
-        return applyTax.compose(applyDiscount).apply(listingPrice);
+        if (discountRule.apply(listingPrice)) {
+            return applyTax.compose(applyDiscount).apply(listingPrice);
+        }
+        return listingPrice;
     }
 }
