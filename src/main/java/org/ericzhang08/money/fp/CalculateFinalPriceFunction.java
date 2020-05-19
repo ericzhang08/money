@@ -1,4 +1,4 @@
-package org.mad.money.fp;
+package org.ericzhang08.money.fp;
 
 import java.math.BigDecimal;
 import java.util.function.Function;

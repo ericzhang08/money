@@ -1,6 +1,6 @@
-package org.mad.money;
+package org.ericzhang08.money;
 
-import org.mad.money.oo.Application;
+import org.ericzhang08.money.fp.Application;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,11 +9,9 @@ import java.math.BigDecimal;
 
 @SpringBootApplication
 public class MoneyApplication implements CommandLineRunner {
-    private final Application ooApplication;
-    private final org.mad.money.fp.Application fpApplication;
+    private final Application fpApplication;
 
-    MoneyApplication(Application ooApplication, org.mad.money.fp.Application fpApplication) {
-        this.ooApplication = ooApplication;
+    MoneyApplication( Application fpApplication) {
         this.fpApplication = fpApplication;
     }
 
@@ -24,9 +22,6 @@ public class MoneyApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
         var listingPrice = new BigDecimal(100);
-
-        System.out.println(ooApplication.getClass().getName());
-        System.out.println(ooApplication.run(listingPrice));
 
         System.out.println();
 

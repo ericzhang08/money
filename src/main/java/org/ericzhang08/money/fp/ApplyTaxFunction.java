@@ -1,4 +1,4 @@
-package org.mad.money.fp;
+package org.ericzhang08.money.fp;
 
 import org.springframework.stereotype.Component;
 
